@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.javalec.SoccerVelue.dao.Board_IDao">
+	
+	<select id="pagelist" resultType="com.javalec.SoccerVelue.dto.Board_Dto">
+		SELECT BID,BNAME,BTITLE,BCONTENT,TO_CHAR(BDATE,'YYYY.MM.DD') AS BDATE,BHIT, (SELECT COUNT(*) FROM BOARD_COMMENT WHERE BOARD_NO=BID)AS BOARD_COMMENT FROM SOCCER_BOARD ORDER BY BID DESC OFFSET #{param1} ROWS FETCH NEXT #{param2} ROWS ONLY
+	</select>
+	<select id="pagelist_find" resultType="com.javalec.SoccerVelue.dto.Board_Dto">
+		SELECT BID,BNAME,BTITLE,BCONTENT,TO_CHAR(BDATE,'YYYY.MM.DD') AS BDATE,BHIT, (SELECT COUNT(*) FROM BOARD_COMMENT WHERE BOARD_NO=BID)AS BOARD_COMMENT FROM SOCCER_BOARD WHERE BTITLE LIKE '%'||#{param1}||'%' ORDER BY BID DESC OFFSET #{param2} ROWS FETCH NEXT #{param3} ROWS ONLY
+	</select>
+	<insert id="writeDao" >
+		INSERT INTO SOCCER_BOARD (BID, BNAME, BTITLE,BCONTENT,BHIT) VALUES (SOCCER_BOARD_SEQ.NEXTVAL, #{param1}, #{param2},#{param3},0)
+	</insert>
+	<delete id="deleteDao">
+		DELETE FROM SOCCER_BOARD WHERE BID = #{param1}
+	</delete>
+	
+	<update id="upHit">
+		UPDATE SOCCER_BOARD SET BHIT = BHIT + 1 WHERE BId=#{param1}
+	</update>
+	
+	<update id="updateDao">
+		UPDATE SOCCER_BOARD SET BTITLE = #{param2},BCONTENT = #{param3} WHERE bId=#{param1}
+	</update>
+	
+	<select id="contentView" resultType="com.javalec.SoccerVelue.dto.Board_Dto">
+		SELECT * FROM SOCCER_BOARD WHERE BID =#{param1}
+	</select>
+	<select id="pagecount" resultType="Integer">
+		SELECT COUNT(*) FROM SOCCER_BOARD
+	</select>
+	<select id="pagecount_find" resultType="Integer">
+		SELECT COUNT(*) FROM SOCCER_BOARD WHERE BTITLE LIKE '%'||#{param1}||'%'
+	</select>
+	<select id="writeDao_move" resultType="Integer">
+		SELECT bId FROM (SELECT * FROM SOCCER_BOARD WHERE bName=#{param1} ORDER BY bId DESC) WHERE rownum=1
+	</select>
+	
+	<select id="UserId" resultType="String">
+		SELECT BNAME FROM SOCCER_BOARD WHERE BID =#{param1}
+	</select>
+	
+	
+</mapper>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.javalec.SoccerVelue.dao.Comment_IDao">
+	
+
+	<select id="commentlist" resultType="com.javalec.SoccerVelue.dto.Comment_Dto">
+		SELECT COMMENT_DATE,BOARD_NO,COMMENT_GROUP,USER_ID,COMMENT_TEXT,COMMENT_STEP,(SELECT COUNT(*) FROM BOARD_COMMENT WHERE BOARD_NO=#{param1} AND COMMENT_GROUP=b.COMMENT_GROUP)AS GROUP_COUNT FROM BOARD_COMMENT b WHERE BOARD_NO=#{param1} AND COMMENT_STEP=0 ORDER BY COMMENT_GROUP DESC
+	</select>
+	
+	
+	<select id="commentlist_more" resultType="com.javalec.SoccerVelue.dto.Comment_Dto">
+		SELECT * FROM BOARD_COMMENT WHERE COMMENT_GROUP=#{param1} AND COMMENT_STEP>0 ORDER BY COMMENT_GROUP ASC
+	</select>
+	
+	<select id="user_name" resultType="string">
+		SELECT USER_ID FROM BOARD_COMMENT WHERE COMMENT_GROUP=#{param1}
+	</select>
+	
+	<update id="comment_update">
+		UPDATE BOARD_COMMENT SET COMMENT_TEXT = #{param2} WHERE COMMENT_GROUP=#{param1} AND COMMENT_STEP=0
+	</update>
+	
+	<update id="comment_more_update">
+		UPDATE BOARD_COMMENT SET COMMENT_TEXT = #{param2} WHERE COMMENT_STEP=#{param1}
+	</update>
+	
+	<insert id="create_group">
+		INSERT INTO BOARD_COMMENT (BOARD_NO, COMMENT_GROUP, COMMENT_STEP,USER_ID,COMMENT_TEXT) VALUES (#{param1},COMMENT_GROUP_SEQ.NEXTVAL,0, #{param2},#{param3})
+	</insert>
+	
+	<insert id="comment_more_write">
+		INSERT INTO BOARD_COMMENT (BOARD_NO, COMMENT_GROUP, COMMENT_STEP,USER_ID,COMMENT_TEXT) VALUES (#{param1},#{param2},COMMENT_STEP_SEQ.NEXTVAL, #{param3},#{param4})
+	</insert>
+	
+	<delete id="comment_group_delete">
+		DELETE FROM BOARD_COMMENT WHERE USER_ID = #{param1} AND COMMENT_GROUP = #{param2}
+	</delete>
+	
+	<delete id="comment_step_delete">
+		DELETE FROM BOARD_COMMENT WHERE USER_ID = #{param1} AND COMMENT_STEP = #{param2}
+	</delete>
+</mapper>

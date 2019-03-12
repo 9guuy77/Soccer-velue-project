@@ -1,0 +1,47 @@
+.bName{
+	float:left;
+}
+.infocss{
+	float:right;
+	margin:0 10px;
+}
+.view_content{
+    width: 820px;
+    margin: 10px;
+    padding:10px;
+	border-bottom: 1px solid gray;
+}
+.content_title{
+	font-size:20px;
+}
+.another_info{
+	margin:10px;
+}
+.menu_box{
+	border-bottom: 1px solid gray;
+	height:65px;
+	margin:10px;
+}
+.title_box_content{
+	border-top:1px solid #CCC;
+	border-bottom:1px solid #CCC;
+	background:#FCFCFC;
+}
+.btn{
+    float:right;
+}
+.delete{
+	margin:0 10px;
+	background:rgba(255,0,0,0.8);
+}
+
+.update{
+	margin:0 10px;
+	background:rgba(0,0,255,0.7);
+}
+.push{
+    float:right;
+}
+.more_text{
+	margin:10px;
+}

@@ -1,0 +1,28 @@
+.header_box{
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.7)
+}
+.header_box .header_area {
+    width: 1100px;
+    height: 50px;
+    position: relative;
+    top: 0;
+    margin:0 auto;
+}
+
+.header_box .header_area p {
+    float: right;
+    width: 8%;
+}
+
+.header_box .header_area p a {
+	font-size: 13px;
+	font-weight: 200;
+	color:whitesmoke;
+	text-align: center;
+	text-decoration:none;
+}
+body {
+    margin: 0;
+    padding: 0;
+}

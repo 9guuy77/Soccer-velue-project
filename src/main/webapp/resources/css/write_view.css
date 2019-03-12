@@ -1,0 +1,47 @@
+.view_box{
+    width: 860px;
+    height: 500px;
+    position: relative;
+    margin:50px auto;
+}
+.title_box{
+	width:100%;
+	height:60px;
+}
+.btitle{
+	width:99%;
+	font-size:16px;
+	padding:5px;
+}
+.Main_title{
+	font-size:30px;
+	text-decoration:none;
+	color:black;
+}
+.subput{
+	float:right;
+}
+
+.list_view{
+	float:left;
+	text-align: center;
+	text-decoration:none;
+	font-size:15px;
+    min-width: 100px;
+    height: 35px;
+    color:#FFF;
+    background:rgba(0, 0, 0, 0.7);
+    border: 1px solid black;
+    border-radius: 5px;
+   line-height: 30px;
+}
+.subput{
+    float:right;
+    min-width: 100px;
+    height: 35px;
+    color:#FFF;
+    background:#55B;
+    border: 1px solid black;
+    border-radius: 5px;    
+    cursor:pointer;
+}

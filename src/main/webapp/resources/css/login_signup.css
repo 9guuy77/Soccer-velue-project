@@ -1,0 +1,36 @@
+.login_btn{
+    border-radius: 5px;    
+    background-color: gray;
+    border: 1px solid black;
+    color: white;
+    padding: 5px;
+    cursor:pointer;
+    width:430px;
+    height:40px;
+    font-size:16px;
+}
+.sign_btn{
+    display:block;
+    width:410px;
+    border-radius: 5px;    
+    background-color: skyblue;
+    border: 1px solid black;
+    color: white;
+    padding: 5px;
+    cursor:pointer;
+    text-decoration: none;
+    text-align: center;
+    padding:10px;
+}
+.input{
+    padding: 10px 10px;
+    width:400px;
+}
+.login_info{
+    width: 500px;
+    position: relative;
+    margin:0 auto;
+}
+.login_error p{
+    color:red;
+}

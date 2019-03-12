@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.javalec.SoccerVelue.dao.User_IDao">	
+	<select id="idCheck" resultType="Integer">
+		SELECT COUNT(*) FROM USER_INFO WHERE USERID=#{param1}
+	</select>
+	
+	<select id="sign_up" resultType="com.javalec.SoccerVelue.dto.User_Dto">
+	INSERT INTO USER_INFO (USERID,EMAIL,PASSWORD) VALUES (#{param1},#{param2},#{param3})
+	</select>
+	
+	
+</mapper>

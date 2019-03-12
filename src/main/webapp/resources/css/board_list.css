@@ -1,0 +1,76 @@
+.board_box{
+    width: 860px;
+    height: 500px;
+    position: relative;
+    margin:0 auto;
+    white-space: nowrap;
+}
+.board_title{
+    width:100%
+}
+.title_box{
+	border-bottom: thick solid gainsboro;
+	margin:30px 0;
+}
+.content_title:link { color: black; text-decoration: none;}
+.content_title:visited { color: black; text-decoration: none;}
+.content_title:hover { color: black;  text-decoration: underline;}
+.content_num{
+    text-align: right;
+}
+.content_Hit{
+    text-align: right;
+}
+.content_name{
+    text-align: right;
+}
+.board_list_head{
+	border: 5px;
+	background-color:gainsboro;
+	border-top: thick solid gainsboro;
+	border-bottom: thick solid gainsboro;
+}
+.board_list_head{
+    background-color:gainsboro;
+}
+.board_list_head th{
+    border:1px solid gainsboro;
+}
+
+.board_table{
+    border-collapse: collapse;
+}
+.board_content{
+    border-bottom:1px solid gainsboro;
+}
+.board_content td{
+    padding: 6px 15px 4px;
+}
+.pagetable{
+	text-align: center;
+}
+.pagetable a{
+	border:1px solid transparent;
+	text-decoration: none;
+	color:gray;
+	padding:5px;
+}
+.write_view{
+	float:right;
+	border: 1px solid;
+	border-radius: 3px;
+	border-color: #CCC;
+}
+.write_href{
+	text-decoration: none;
+	color:black;
+}
+
+.board_find{
+	color:black;
+	float:left;
+}
+.board_find_write{
+	position:relative;
+	padding:5px;
+}
